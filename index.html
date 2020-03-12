@@ -14,7 +14,7 @@
   <div class="mdui-toolbar mdui-color-indigo">
     <a href="javascript:;" class="mdui-typo-title" style="font-size:32px;">HANNARI's Website</a>
     <p id="timedate"></p>
-    <script>
+    <script>/*显示时间*/
         setInterval("timedate.innerHTML=new Date().toLocaleString()",1000);
     </script>
     <div class="mdui-toolbar-spacer"></div>
@@ -50,7 +50,7 @@
           </div>
         </div>
       </div>
-        <p id="t1-1">针对 Ubuntu 安装 MySQL 后无需密码就能进入数据库的解决方案</p>
+        <h2 id="t1-1">针对 Ubuntu 安装 MySQL 后无需密码就能进入数据库的解决方案</h2>
       <blockquote>
         <pre>
 $ sudo mysql -u root -p
@@ -62,25 +62,25 @@ $ EXIT;
         </pre>
       </blockquote>
 
-      <p id="t1-2">Shell 获取手机 IMEI 方法</p>
+      <h2 id="t1-2">Shell 获取手机 IMEI 方法</h2>
       <blockquote><pre>
 service call iphonesubinfo 1 | awk -F "'" '{print $2}' | sed 's/[^0-9A-F]*//g' | tr -d '\n' && echo
       </pre>
       </blockquote>
 
-      <p id="t1-3">挂载 /tmp 分区方法（15 GB）</p>
+      <h2 id="t1-3">挂载 /tmp 分区方法（15 GB）</h2>
       <blockquote><pre>
 $ sudo mount -t tmpfs -o size=15G tmpfs /tmp
       </pre>
       </blockquote>
 
-      <p id="t1-4">安装 Android 编译环境（Ubuntu LTS）</p>
+      <h2 id="t1-4">安装 Android 编译环境（Ubuntu LTS）</h2>
       <blockquote><pre>
 # apt-get update
 # apt-get dist-upgrade -y
 # apt-get install -y openjdk-8-jdk git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z-dev libgl1-mesa-dev libxml2-utils xsltproc unzip python bc imagemagick ccache schedtool libssl-dev repo patchelf
       </pre></blockquote>
-      <p id="t1-5">Arch Linux 下使深度文件管理器读取 MTP 设备</p>
+      <h2 id="t1-5">Arch Linux 下使深度文件管理器读取 MTP 设备</h2>
       <blockquote><pre>
 # pacman -S libmtp simple-mtpfs gvfs-mtp
       </pre></blockquote>
