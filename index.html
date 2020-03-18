@@ -96,7 +96,8 @@ $ &nbsp sudo &nbsp yay &nbsp -S &nbsp qcef
 $ sudo pacman -U qcef-1.1.6-1-x86_64.pkg.tar.xz
 $ sudo pacman -U netease-cloud-music-1.2.1-2-x86_64.pkg.tar.xz
       </blockquote></pre>
-      <p>之后对<code>/opt/netease/netease-cloud-music/netease-cloud-music.bash</code>进行修改,把它改成这个样子</p>
+      <p>在xfce上可能会出现双重标题栏,解决方法:对<code>/opt/netease/netease-cloud-music/netease-cloud-music.bash</code>进行修改,把它改成这个样子</p>
+      <p>KDE可以忽略此条,其他桌面未实验</p>
       <pre><blockquote>
 #!/bin/sh
 HERE="$(dirname "$(readlink -f "${0}")")"
