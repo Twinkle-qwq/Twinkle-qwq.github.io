@@ -123,6 +123,19 @@ while True:
         <a href="mailto:Twinkle_666@foxmail.com" style="text-decoration: none;">本喵的邮箱</a>
         <a href="//github.com/Twinkle-qwq" style="text-decoration: none;">本喵的GitHub</a></div>
     </div>
-  </body>
-
-</html>
+  </body><script>
+    var OriginTitile = document.title;
+    var titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '(つェ⊂)我藏好了哦~ ';
+            clearTimeout(titleTime);
+        }
+        else {
+            document.title = '(*´∇｀*) 被你发现啦~ ';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            }, 2000);
+        }
+    });
+</script></html>
