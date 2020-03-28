@@ -1,163 +1,128 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>HANNARI's Website</title>
-  <link rel="stylesheet" href="/css/mdui.min.css"/>
-  <link rel="stylesheet" href="/css/ENTER_PRE.css">
-  <script src="/javascript/mdui.min.js"></script>
-</head>
-<body class="mdui-appbar-with-toolbar mdui-appbar-with-tab">
-
-<div class="mdui-appbar mdui-appbar-fixed">
-  <div class="mdui-toolbar mdui-color-indigo">
-    <a href="javascript:;" class="mdui-typo-title" style="font-size:32px;">HANNARI's Website</a>
-    <p id="timedate"></p>
-    <script>/*显示时间*/
-        setInterval("timedate.innerHTML=new Date().toLocaleString()",1000);
-    </script>
-    <div class="mdui-toolbar-spacer"></div>
-    <a href="javascript:;" class="mdui-btn mdui-btn-icon mdui-ripple" mdui-tooltip="{content: '搜索'}"><i class="mdui-icon material-icons"><img src="/images/search.png" height="25px" width="25px" /></i></a>
-    <a href="" class="mdui-btn mdui-btn-icon mdui-ripple" mdui-tooltip="{content: '刷新'}"><i class="mdui-icon material-icons"><img src="/images/refresh.png" height="25px" width="25px" /></i></a>
-    <a href="javascript:;" class="mdui-btn mdui-btn-icon mdui-ripple" mdui-tooltip="{content: '更多'}"><i class="mdui-icon material-icons"><img src="/images/more.png" height="25px" width="25px" /></i></a>
-  </div>
-  <div class="mdui-tab mdui-color-indigo" mdui-tab>
-    <a href="#tab1" class="mdui-ripple mdui-ripple-white">技术干货</a>
-    <a href="#tab2" class="mdui-ripple mdui-ripple-white">资源干货</a>
-    <a href="#tab3" class="mdui-ripple mdui-ripple-white">关于</a>
-  </div>
-</div>
-
-<div class="mdui-container-fluid">
-  <div id="tab1">
-      <h1>欢迎来到技术干货区    </h1>
-
-      <div class="mdui-panel" mdui-panel>
   
-        <div class="mdui-panel-item mdui-panel-item-open">
-          <div class="mdui-panel-item-header">
-            <div class="mdui-panel-item-title">目录</div>
-            <div class="mdui-panel-item-summary"></div><!--目录描述-->
-            <i class="mdui-panel-item-arrow mdui-icon material-icons"><img src="/images/arrow_down.png" /></i>
-          </div>
-          <div class="mdui-panel-item-body">
-            <p><a href="#t1-1" style="text-decoration: none;">针对 Ubuntu 安装 MySQL 后无需密码就能进入数据库的解决方案</a></p>
-            <p><a href="#t1-2" style="text-decoration: none;">Shell 获取手机 IMEI 方法</a></p>
-            <p><a href="#t1-3" style="text-decoration: none;">挂载 /tmp 分区方法（15 GB）</a></p>
-            <p><a href="#t1-4" style="text-decoration: none;">安装 Android 编译环境（Ubuntu LTS）</a></p>
-            <p><a href="#t1-5" style="text-decoration: none;">Arch Linux 下使深度文件管理器读取 MTP 设备</a></p>
-            <p><a href="#t1-6" style="text-decoration: none;">Arch Linux 下网易云音乐客户端搜索框无法键入中文</a></p>
-          </div>
-        </div>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>HANNARI's Website</title>
+    <link rel="stylesheet" href="/css/mdui.min.css" />
+    <link rel="stylesheet" href="/css/ENTER_PRE.css">
+    <script src="/javascript/mdui.min.js"></script>
+  </head>
+  
+  <body class="mdui-appbar-with-toolbar mdui-appbar-with-tab">
+    <div class="mdui-appbar mdui-appbar-fixed">
+      <div class="mdui-toolbar mdui-color-indigo">
+        <a href="javascript:;" class="mdui-typo-title" style="font-size:32px;">HANNARI's Website</a>
+        <p id="timedate"></p>
+        <script>setInterval("timedate.innerHTML=new Date().toLocaleString()", 1000);</script>
+        <div class="mdui-toolbar-spacer"></div>
+        <a href="javascript:;" class="mdui-btn mdui-btn-icon mdui-ripple" mdui-tooltip="{content: '搜索'}">
+          <i class="mdui-icon material-icons">
+            <img src="/images/search.png" height="25px" width="25px" /></i>
+        </a>
+        <a href="" class="mdui-btn mdui-btn-icon mdui-ripple" mdui-tooltip="{content: '刷新'}">
+          <i class="mdui-icon material-icons">
+            <img src="/images/refresh.png" height="25px" width="25px" /></i>
+        </a>
+        <a href="javascript:;" class="mdui-btn mdui-btn-icon mdui-ripple" mdui-tooltip="{content: '更多'}">
+          <i class="mdui-icon material-icons">
+            <img src="/images/more.png" height="25px" width="25px" /></i>
+        </a>
       </div>
-        <h2 id="t1-1">针对 Ubuntu 安装 MySQL 后无需密码就能进入数据库的解决方案</h2>
-      <blockquote>
-        <pre>
-$ sudo mysql -u root -p
-$ DROP USER 'root'@'localhost';
-$ CREATE USER 'root'@'%' IDENTIFIED BY 'password';
-$ GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
-$ FLUSH PRIVILEGES;
-$ EXIT;
-        </pre>
-      </blockquote>
-
-      <h2 id="t1-2">Shell 获取手机 IMEI 方法</h2>
-      <blockquote><pre>
-service call iphonesubinfo 1 | awk -F "'" '{print $2}' | sed 's/[^0-9A-F]*//g' | tr -d '\n' && echo
-      </pre>
-      </blockquote>
-
-      <h2 id="t1-3">挂载 /tmp 分区方法（15 GB）</h2>
-      <blockquote><pre>
-$ sudo mount -t tmpfs -o size=15G tmpfs /tmp
-      </pre>
-      </blockquote>
-
-      <h2 id="t1-4">安装 Android 编译环境（Ubuntu LTS）</h2>
-      <blockquote><pre>
-# apt-get update
-# apt-get dist-upgrade -y
-# apt-get install -y openjdk-8-jdk git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z-dev libgl1-mesa-dev libxml2-utils xsltproc unzip python bc imagemagick ccache schedtool libssl-dev repo patchelf
-      </pre></blockquote>
-      <h2 id="t1-5">Arch Linux 下使深度文件管理器读取 MTP 设备</h2>
-      <blockquote><pre>
-# pacman -S libmtp simple-mtpfs gvfs-mtp
-      </pre></blockquote>
-      <h2 id="t1-6">Arch Linux 下网易云音乐客户端搜索框无法键入中文解决方法</h2>
-      <p style="text-decoration: line-through;">先安装qcef这个包</p>
-      <blockquote><p style="text-decoration: line-through;">
-$ &nbsp sudo &nbsp yay &nbsp -S &nbsp qcef
-        </p></blockquote>
-      <p>qcef已经从arch官方仓库和AUR中移除,请使用这里提供的<abbr title="在资源干货区">链接</abbr>,感谢<a href="//github.com/hh2333">TH779</a>编译的qcef包</p>
-      <p>下载后使用pacman -U 命令进行安装</p>
-      <pre><blockquote>
-$ sudo pacman -U qcef-1.1.6-1-x86_64.pkg.tar.xz
-$ sudo pacman -U netease-cloud-music-1.2.1-2-x86_64.pkg.tar.xz
-      </blockquote></pre>
-      <p>在xfce上可能会出现双重标题栏,解决方法:对<code>/opt/netease/netease-cloud-music/netease-cloud-music.bash</code>进行修改,把它改成这个样子</p>
-      <p>KDE可以忽略此条,其他桌面未实验</p>
-      <pre><blockquote>
-#!/bin/sh
-HERE="$(dirname "$(readlink -f "${0}")")"
-#export LD_LIBRARY_PATH="${HERE}"/libs
-#export QT_PLUGIN_PATH="${HERE}"/plugins 
-#export QT_QPA_PLATFORM_PLUGIN_PATH="${HERE}"/plugins/platforms
-export XDG_CURRENT_DESKTOP=DDE 
-exec "${HERE}"/netease-cloud-music $@
-      </blockquote></pre>
-      <p>重启客户端,便可正常输入中文</p>
+      <div class="mdui-tab mdui-color-indigo" mdui-tab>
+        <a href="#tab1" class="mdui-ripple mdui-ripple-white">技术干货</a>
+        <a href="#tab2" class="mdui-ripple mdui-ripple-white">资源干货</a>
+        <a href="#tab3" class="mdui-ripple mdui-ripple-white">关于</a></div>
     </div>
-  
-  <div id="tab2">
-      <h1>欢迎来到资源干货区</h1>
-      <div class="mdui-panel" mdui-panel>
-  
-        <div class="mdui-panel-item mdui-panel-item-open">
-          <div class="mdui-panel-item-header">
-            <div class="mdui-panel-item-title">目录</div>
-            <div class="mdui-panel-item-summary"></div>
-            <i class="mdui-panel-item-arrow mdui-icon material-icons"><img src="/images/arrow_down.png" /></i>
+    <div class="mdui-container-fluid">
+      <div id="tab1">
+        <h1>欢迎来到技术干货区</h1>
+        <div class="mdui-panel" mdui-panel>
+          <div class="mdui-panel-item mdui-panel-item-open">
+            <div class="mdui-panel-item-header">
+              <div class="mdui-panel-item-title">目录</div>
+              <div class="mdui-panel-item-summary"></div>
+              <i class="mdui-panel-item-arrow mdui-icon material-icons">
+                <img src="/images/arrow_down.png" /></i>
+            </div>
+            <div class="mdui-panel-item-body">
+              <p>
+                <a href="#t1-1" style="text-decoration: none;">针对 Ubuntu 安装 MySQL 后无需密码就能进入数据库的解决方案</a></p>
+              <p>
+                <a href="#t1-2" style="text-decoration: none;">Shell 获取手机 IMEI 方法</a></p>
+              <p>
+                <a href="#t1-3" style="text-decoration: none;">挂载 /tmp 分区方法（15 GB）</a></p>
+              <p>
+                <a href="#t1-4" style="text-decoration: none;">安装 Android 编译环境（Ubuntu LTS）</a></p>
+              <p>
+                <a href="#t1-5" style="text-decoration: none;">Arch Linux 下使深度文件管理器读取 MTP 设备</a></p>
+              <p>
+                <a href="#t1-6" style="text-decoration: none;">Python下保证用户输入的字符串为数字的办法</a></p>
+            </div>
           </div>
-          <div class="mdui-panel-item-body">
-            <p><a href="//material.io/resources/icons/">使用MD设计的图标</a></p>
-            <p>qcef百度网盘<a href="//pan.baidu.com/s/1nqxWVO33FE8uAC3baRiagA">下载链接</a> 提取码:u7rx</p>
+        </div>
+        <h2 id="t1-1">针对 Ubuntu 安装 MySQL 后无需密码就能进入数据库的解决方案</h2>
+        <blockquote>
+          <pre>$ sudo mysql -u root -p$ DROP USER 'root'@'localhost';$ CREATE USER 'root'@'%' IDENTIFIED BY 'password';$ GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;$ FLUSH PRIVILEGES;$ EXIT;</pre></blockquote>
+        <h2 id="t1-2">Shell 获取手机 IMEI 方法</h2>
+        <blockquote>
+          <pre>service call iphonesubinfo 1 | awk -F "'" '{print $2}' | sed 's/[^0-9A-F]*//g' | tr -d '\n' && echo</pre></blockquote>
+        <h2 id="t1-3">挂载 /tmp 分区方法（15 GB）</h2>
+        <blockquote>
+          <pre>$ sudo mount -t tmpfs -o size=15G tmpfs /tmp</pre></blockquote>
+        <h2 id="t1-4">安装 Android 编译环境（Ubuntu LTS）</h2>
+        <blockquote>
+          <pre># apt-get update# apt-get dist-upgrade -y# apt-get install -y openjdk-8-jdk git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z-dev libgl1-mesa-dev libxml2-utils xsltproc unzip python bc imagemagick ccache schedtool libssl-dev repo patchelf</pre></blockquote>
+        <h2 id="t1-5">Arch Linux 下使深度文件管理器读取 MTP 设备</h2>
+        <blockquote>
+          <pre># pacman -S libmtp simple-mtpfs gvfs-mtp</pre></blockquote>
+        <h2 id="t1-6">Python下保证用户输入的字符串为数字的办法</h2>
+        <blockquote>
+          <pre>
+def input_int():
+while True:
+    try:
+        x = int(input("请输入你猜的数字:"))
+        return x
+    except:
+        print("输的啥玩意啊,不跟你玩了")
+        exit()
+          </pre>
+        </blockquote>
+      </div>
+      <div id="tab2">
+        <h1>欢迎来到资源干货区</h1>
+        <div class="mdui-panel" mdui-panel>
+          <div class="mdui-panel-item mdui-panel-item-open">
+            <div class="mdui-panel-item-header">
+              <div class="mdui-panel-item-title">目录</div>
+              <div class="mdui-panel-item-summary"></div>
+              <i class="mdui-panel-item-arrow mdui-icon material-icons">
+                <img src="/images/arrow_down.png" /></i>
+            </div>
+            <div class="mdui-panel-item-body">
+              <p>
+                <a href="//material.io/resources/icons/">使用MD设计的图标</a></p>
+            </div>
           </div>
         </div>
       </div>
-  </div>
-  <div id="tab3">
-      <h1>关于</h1>
-      <p>宁好啊~欢迎来到本喵的小窝,本喵喜欢二次元和大部分可爱的东西~这个鬼网站是用来记录很多很多东西的说</p>
-      <p>目前本喵已经进入了高二,所以可能会在这里面丢咱的日记[宁这样任性不好的喵],本喵喜欢二次元和大部分可爱的东西~</p>
-      <p>在这里本喵要谢谢TH779、喵姐以及好多好多好伙伴们,是他们教会了本喵,搞好了这个网站</p>
-      <h1>友情链接</h1>
-      <a href="//github.com/hh2333" style="text-decoration: none;">THbendan(TH779)</a><br/>
-      <a href="//github.com/MlgmXyysd" style="text-decoration: none;">喵姐(MlgmXyysd)</a><br/>
-      Powered by<a href="//https://www.mdui.org/" style="text-decoration: none;">MDUI</a>
-      <h1>联系本喵</h1>
-      <p>本喵才不要告诉你怎么找到本喵的说</p>
-      <p>诶..真的要说吗..那好吧..</p>
-      <a href="mailto:Twinkle_666@foxmail.com" style="text-decoration: none;">本喵的邮箱</a>
-      <a href="//github.com/Twinkle-qwq" style="text-decoration: none;">本喵的GitHub</a>
-  </div>
-</div>
-<script>
-var OriginTitile = document.title;
-var titleTime;
-document.addEventListener('visibilitychange', function() {
-    if (document.hidden) {
-        document.title = '(つェ⊂)我藏好了哦~ ';
-        clearTimeout(titleTime);
-    }
-    else {
-        document.title = '(*´∇｀*) 被你发现啦~ ';
-        titleTime = setTimeout(function() {
-            document.title = OriginTitile;
-        }, 2000);
-    }
-});
-</script>
-</body>
+      <div id="tab3">
+        <h1>关于</h1>
+        <p>宁好啊~欢迎来到本喵的小窝,本喵喜欢二次元和大部分可爱的东西~这个鬼网站是用来记录很多很多东西的说</p>
+        <p>目前本喵已经进入了高二,所以可能会在这里面丢咱的日记[宁这样任性不好的喵],本喵喜欢二次元和大部分可爱的东西~</p>
+        <p>在这里本喵要谢谢TH779、喵姐以及好多好多好伙伴们,是他们教会了本喵,搞好了这个网站</p>
+        <h1>友情链接</h1>
+        <a href="//github.com/hh2333" style="text-decoration: none;">THbendan(TH779)</a>
+        <br/>
+        <a href="//github.com/MlgmXyysd" style="text-decoration: none;">喵姐(MlgmXyysd)</a>
+        <h1>联系本喵</h1>
+        <p>本喵才不要告诉你怎么找到本喵的说</p>
+        <p>诶..真的要说吗..那好吧..</p>
+        <a href="mailto:Twinkle_666@foxmail.com" style="text-decoration: none;">本喵的邮箱</a>
+        <a href="//github.com/Twinkle-qwq" style="text-decoration: none;">本喵的GitHub</a></div>
+    </div>
+  </body>
+
 </html>
